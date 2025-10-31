@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <title>PodcastApp</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ===== HEADER ===== -->
+    <header class="app-header">
+      <div class="header-inner">
+        <div class="brand">
+          <img
+            class="brand-logo"
+            src="podcast-img/podcast-logo.png"
+            alt="PodcastApp"
+            width="26"
+            height="26"
+            decoding="async"
+          />
+          <span class="brand-name">PodcastApp</span>
+        </div>
+
+        <div class="header-actions">
+          <button class="icon-btn" aria-label="Search">🔍</button>
+          <div class="avatar" aria-hidden="true">
+            <img
+              class="avatar-img"
+              src="podcast-img/face.png"
+              alt=""
+              width="26"
+              height="26"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="filters">
+        <div class="filters-inner">
+          <span class="filter-label">Filter by:</span>
+
+          <div class="filter-row">
+            <label class="select-shell">
+              <select id="genreSelect" class="select-input"></select>
+            </label>
+
+            <label class="select-shell">
+              <select id="sortSelect" class="select-input">
+                <option value="recent">Recently Updated</option>
+                <option value="popular">Most Popular</option>
+                <option value="newest">Newest</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cards grid -->
+      <section id="podcastGrid" class="podcast-grid"></section>
+    </main>
+
+    <!-- ===== MODAL ===== -->
+    <div id="modalBackdrop" class="modal-backdrop hidden"></div>
+
+    <section
+      id="podcastModal"
+      class="modal hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <div class="modal-panel">
+        <button id="modalCloseBtn" class="modal-close" aria-label="Close">
+          ✕
+        </button>
+        <h2 id="modalTitle" class="modal-title">Podcast Title</h2>
+
+        <!-- Mobile/Tablet -->
+        <div class="mobile-layout">
+          <div id="modalCoverMobile" class="modal-cover-lg">
+            Large Cover Image
+          </div>
+
+          <section class="modal-block">
+            <h3 class="modal-block-heading">Description</h3>
+            <p id="modalDescriptionMobile" class="modal-desc"></p>
+          </section>
+
+          <section class="modal-block">
+            <h3 class="modal-block-heading">Genres</h3>
+            <div id="modalGenresMobile" class="tag-row"></div>
+            <div class="updated-row">
+              <span class="updated-icon" aria-hidden="true">📅</span>
+              <span id="modalUpdatedMobile" class="updated-text"></span>
+            </div>
+          </section>
+
+          <section class="modal-block">
+            <h3 class="modal-block-heading">Seasons</h3>
+            <ul id="modalSeasonsMobile" class="season-list"></ul>
+          </section>
+        </div>
+
+        <!-- Desktop -->
+        <div class="desktop-layout">
+          <div class="modal-top-row">
+            <div id="modalCoverDesktop" class="modal-cover-desktop">
+              Large Cover Image
+            </div>
+
+            <div class="modal-meta-col">
+              <section class="modal-block">
+                <h3 class="modal-block-heading">Description</h3>
+                <p id="modalDescriptionDesktop" class="modal-desc"></p>
+              </section>
+
+              <section class="modal-block">
+                <h3 class="modal-block-heading">Genres</h3>
+                <div id="modalGenresDesktop" class="tag-row"></div>
+                <div class="updated-row">
+                  <span class="updated-icon" aria-hidden="true">📅</span>
+                  <span id="modalUpdatedDesktop" class="updated-text"></span>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <section class="modal-block">
+            <h3 class="modal-block-heading">Seasons</h3>
+            <ul id="modalSeasonsDesktop" class="season-list"></ul>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
